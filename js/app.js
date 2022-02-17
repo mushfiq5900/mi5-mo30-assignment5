@@ -51,14 +51,9 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const clothesValue = getInput('cloth-input');
     const totalExpense = calculate(true, foodValue, rentValue, clothesValue);
     const totalBalance = calculate(false, incomeValue, totalExpense);
-    console.log(incomeValue);
-    console.log(totalExpense);
-    console.log(totalBalance);
-    if (incomeValue > totalExpense) {
+    if (incomeValue >= totalExpense) {
         displayValue('total-expense', totalExpense);
         displayValue('balance', totalBalance);
-        setFieldEmpty('saving-amount', 'innerText')
-        setFieldEmpty('remaining-balance', 'innerText')
     }
     else if (incomeValue < totalExpense) {
         alert("Your Expense is greater than your Income. Please spend within your income limit.")
