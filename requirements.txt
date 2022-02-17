@@ -1,0 +1,9 @@
+1. Name change korte hbe
+2. Image change korte hbe
+3. Mobile responsiv korte hbe. Laptop lagbena. Only lg and sm
+4. 2ta Error handle korte hbe. Input type int kina r greater than 0 kina
+5. Bonus, balance er cheye save beshi hole bolbe insufficient amount.
+6. Bonus, income er cheye expense beshi hole bolbe insufficient income.
+7. Bonus, clean html/css/js and function use korte hbe.
+8. Minimum 5ta git commit korte hbe.
+
