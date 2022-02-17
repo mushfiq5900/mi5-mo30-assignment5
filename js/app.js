@@ -57,6 +57,8 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     if (incomeValue > totalExpense) {
         displayValue('total-expense', totalExpense);
         displayValue('balance', totalBalance);
+        setFieldEmpty('saving-amount', 'innerText')
+        setFieldEmpty('remaining-balance', 'innerText')
     }
     else if (incomeValue < totalExpense) {
         alert("Your Expense is greater than your Income. Please spend within your income limit.")
