@@ -51,22 +51,42 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const clothesValue = getInput('cloth-input');
     const totalExpense = calculate(true, foodValue, rentValue, clothesValue);
     const totalBalance = calculate(false, incomeValue, totalExpense);
-    if (totalBalance > totalExpense) {
+    console.log(incomeValue);
+    console.log(totalExpense);
+    console.log(totalBalance);
+    if (incomeValue > totalExpense) {
         displayValue('total-expense', totalExpense);
         displayValue('balance', totalBalance);
     }
-    else if (totalBalance < totalExpense) {
+    else if (incomeValue < totalExpense) {
         alert("Your Expense is greater than your Income. Please spend within your income limit.")
         setFieldEmpty('food-input', 'inputField')
         setFieldEmpty('rent-input', 'inputField')
         setFieldEmpty('cloth-input', 'inputField')
-        setFieldEmpty('save-percentenge', 'inputField')
     }
     else {
         setFieldEmpty('balance', 'innerText')
         setFieldEmpty('total-expense', 'innerText')
-        setFieldEmpty('saving-amount', 'innerText')
-        setFieldEmpty('remaining-balance', 'innerText')
     }
 })
 
+//Save
+document.getElementById('save-btn').addEventListener('click', function () {
+    const balanceField = document.getElementById('balance').innerText;
+    const balance = parseFloat(balanceField);
+    const saveValue = getInput('save-percentenge');
+    if (balance >= 0 && (saveValue.value != '')) {
+        const savingAmount = (balance * saveValue) / 100;
+        const remainginBalance = balance - savingAmount;
+        if (saveValue <= 100) {
+            displayValue('saving-amount', savingAmount);
+            displayValue('remaining-balance', remainginBalance);
+        }
+        else {
+            alert("You Can't Save more than 100%")
+            setFieldEmpty('save-percentenge', 'inputField')
+            setFieldEmpty('saving-amount', 'innerText')
+            setFieldEmpty('remaining-balance', 'innerText')
+        }
+    }
+})
